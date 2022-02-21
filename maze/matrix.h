@@ -115,6 +115,33 @@ namespace maze {
 		 */
 		bool HasFlag(const Position& pos, unsigned int flag) const;
 
+		/**
+		 * Checks if cell is wall.
+		 * 
+		 * @param[in] pos 		The position of cell.
+		 * 
+		 * @return True if it's wall and false otherwise.
+		 */
+		bool IsWall(const Position& pos) const;
+
+		/**
+		 * Checks if cell is room.
+		 * 
+		 * @param[in] pos 		The position of cell.
+		 * 
+		 * @return True if it's room and false otherwise.
+		 */
+		bool IsRoom(const Position& pos) const;
+
+		/**
+		 * Checks if cell has path.
+		 * 
+		 * @param[in] pos 		The position of cell.
+		 * 
+		 * @return True if it's path and false otherwise.
+		 */
+		bool IsPath(const Position& pos) const;
+
 	private:
 
 		/**

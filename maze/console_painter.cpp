@@ -23,13 +23,12 @@ namespace maze {
 			for (int i = 0; i < matrix.width(); ++i)
 			{
 				Position position(i, j);
-				unsigned int value = matrix.Get(position);
-				if (value == Cell::kWall)
+				if (matrix.IsWall(position))
 					fputc('#', stdout);
-				else if (matrix.HasFlag(position, Cell::kRoom))
-					fputc(' ', stdout);
-				else if (matrix.HasFlag(position, Cell::kPath))
+				else if (matrix.IsPath(position))
 					fputc('o', stdout);
+				else if (matrix.IsRoom(position))
+					fputc(' ', stdout);
 			}
 			fputc('\n', stdout);
 		}

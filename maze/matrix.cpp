@@ -131,5 +131,27 @@ namespace maze {
 
 		return (matrix_[pos.x][pos.y] & flag) == flag;
 	}
+	bool Matrix::IsWall(const Position& pos) const
+	{
+		assert(0 <= pos.x && pos.x < width_);
+		assert(0 <= pos.y && pos.y < height_);
+
+		return matrix_[pos.x][pos.y] == Cell::kWall;
+	}
+	bool Matrix::IsRoom(const Position& pos) const
+	{
+		assert(0 <= pos.x && pos.x < width_);
+		assert(0 <= pos.y && pos.y < height_);
+
+		// Room might have other flags (path, visited).
+		return HasFlag(pos, Cell::kRoom);
+	}
+	bool Matrix::IsPath(const Position& pos) const
+	{
+		assert(0 <= pos.x && pos.x < width_);
+		assert(0 <= pos.y && pos.y < height_);
+
+		return HasFlag(pos, Cell::kPath);
+	}
 
 } // namespace maze
