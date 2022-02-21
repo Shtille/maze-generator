@@ -1,46 +1,67 @@
 #include "prim_generator.h"
 #include "console_painter.h"
 
-#include <cstdlib>
+#include <iostream>
 #include <cstring>
 
-static void print_help()
+static void print_help(const char* name)
 {
-	#define MAZE_HELP \
-		"Possible options of usage:\n"\
-		"- with seed:                   <app> seed\n"\
-		"- with width and height:       <app> width height\n"\
-		"- with width, height and seed: <app> width height seed\n"\
-		"Default values: width=5, height=5, seed=1\n"
-	printf(MAZE_HELP);
-	#undef MAZE_HELP
+	std::cout << "Usage: " << name << " <option(s)>\n"
+		<< "Options:\n"
+		<< "\t   --help\t\tShow this help message\n"
+		<< "\t-w,--width\t\tSpecify the width of the maze\n"
+		<< "\t-h,--height\t\tSpecify the height of the maze\n"
+		<< "\t-s,--seed\t\tSpecify the seed for random\n"
+		<< std::endl;
 }
 int main(int argc, char const *argv[])
 {
 	int width = 5, height = 5, seed = 1;
+
 	// Parse arguments
-	if (argc == 2 && (
-		strcmp(argv[1], "help") == 0 || 
-		strcmp(argv[1], "-help") == 0 ||
-		strcmp(argv[1], "--help") == 0))
+	for (int i = 1; i < argc; ++i)
 	{
-		print_help();
-		return 0;
-	}
-	else if (argc == 4)
-	{
-		width = atoi(argv[1]);
-		height = atoi(argv[2]);
-		seed = atoi(argv[3]);
-	}
-	else if (argc == 3)
-	{
-		width = atoi(argv[1]);
-		height = atoi(argv[2]);
-	}
-	else if (argc == 2)
-	{
-		seed = atoi(argv[1]);
+		if (strcmp(argv[i], "--help") == 0)
+		{
+			print_help(argv[0]);
+			return 0;
+		}
+		else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--width") == 0)
+		{
+			if (i+1 < argc)
+				width = atoi(argv[++i]);
+			else
+			{
+				std::cout << argv[i] << " option requires an argument" << std::endl;
+				return 1;
+			}
+		}
+		else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--height") == 0)
+		{
+			if (i+1 < argc)
+				height = atoi(argv[++i]);
+			else
+			{
+				std::cout << argv[i] << " option requires an argument" << std::endl;
+				return 1;
+			}
+		}
+		else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--seed") == 0)
+		{
+			if (i+1 < argc)
+				seed = atoi(argv[++i]);
+			else
+			{
+				std::cout << argv[i] << " option requires an argument" << std::endl;
+				return 1;
+			}
+		}
+		else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--type") == 0)
+		{
+			// TODO
+			std::cout << argv[i] << " option is no implemented yet" << std::endl;
+			return 1;
+		}
 	}
 
 	maze::RandomizedPrimGenerator generator;
