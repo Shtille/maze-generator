@@ -5,18 +5,15 @@
 
 #include "prim_generator.h"
 
-#include <cstdlib>
-#include <cstdio> // temp for log
-
 namespace maze {
 	
-	static int GetRandom(int maximum)
-	{
-		return std::rand() % maximum;
-	}
 	RandomizedPrimGenerator::RandomizedPrimGenerator()
 	{
 
+	}
+	void RandomizedPrimGenerator::Randomize(int seed)
+	{
+		randomizer_.Randomize(seed);
 	}
 	// Main algorithm:
 	//   1. Start with a grid full of walls.
@@ -45,7 +42,7 @@ namespace maze {
 		while (!wall_list_.empty())
 		{
 			// Pick a random wall from the list. If only one of the cells that the wall divides is visited, then:
-			int random_index = GetRandom(static_cast<int>(wall_list_.size()));
+			int random_index = randomizer_.GetRandom(static_cast<int>(wall_list_.size()));
 			WallInfo& wall = wall_list_[random_index];
 			WallInfo next_wall = wall.GetNext();
 			if (!matrix_.HasFlag(next_wall.position, Cell::kVisited))

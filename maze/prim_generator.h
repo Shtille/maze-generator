@@ -8,6 +8,7 @@
 
 #include "generator.h"
 #include "wall_info.h"
+#include "randomizer.h"
 
 #include <vector>
 
@@ -25,6 +26,13 @@ namespace maze {
 		RandomizedPrimGenerator();
 
 		/**
+		 * Picks another seed.
+		 * 
+		 * @param[in] seed 	The seed.
+		 */
+		void Randomize(int seed);
+
+		/**
 		 * Runs generator at start position.
 		 * 
 		 * @param[in] start 	The start position.
@@ -34,6 +42,7 @@ namespace maze {
 	private:
 
 		std::vector<WallInfo> wall_list_;
+		Randomizer randomizer_;
 	};
 
 } // namespace maze
