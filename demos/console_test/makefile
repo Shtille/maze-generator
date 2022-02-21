@@ -44,7 +44,7 @@ CPPFLAGS += $(INCLUDE)
 CPPFLAGS += $(DEFINES)
 # linker flags
 LDFLAGS += -L$(LIBRARY_PATH)
-LDLIBS = -lstdc++
+LDLIBS = -lmaze -lstdc++
 # flags required for dependency generation; passed to compilers
 DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
 

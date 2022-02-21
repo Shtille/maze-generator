@@ -9,13 +9,13 @@
 namespace maze {
 	
 	/**
-	 * Defines cell type.
+	 * Defines cell constants.
 	 */
-	enum class Cell : unsigned int {
-		kWall = 0,
-		kRoom = 1,
-		kPath = 2,
-		kVisited = 4
+	struct Cell {
+		static constexpr unsigned int kWall = 0;
+		static constexpr unsigned int kRoom = 1;
+		static constexpr unsigned int kPath = 2;
+		static constexpr unsigned int kVisited = 4;
 	};
 
 } // namespace maze

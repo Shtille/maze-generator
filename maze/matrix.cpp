@@ -110,21 +110,21 @@ namespace maze {
 		return 0 < pos.x && pos.x < width_-1 &&
 			   0 < pos.y && pos.y < height_-1;
 	}
-	void Matrix::AddFlag(const Position& pos, Cell flag)
+	void Matrix::AddFlag(const Position& pos, unsigned int flag)
 	{
 		assert(0 <= pos.x && pos.x < width_);
 		assert(0 <= pos.y && pos.y < height_);
 
 		matrix_[pos.x][pos.y] |= flag;
 	}
-	void Matrix::RemoveFlag(const Position& pos, Cell flag)
+	void Matrix::RemoveFlag(const Position& pos, unsigned int flag)
 	{
 		assert(0 <= pos.x && pos.x < width_);
 		assert(0 <= pos.y && pos.y < height_);
 
 		matrix_[pos.x][pos.y] &= ~flag;
 	}
-	bool Matrix::HasFlag(const Position& pos, Cell flag)
+	bool Matrix::HasFlag(const Position& pos, unsigned int flag)
 	{
 		assert(0 <= pos.x && pos.x < width_);
 		assert(0 <= pos.y && pos.y < height_);

@@ -13,6 +13,6 @@ int main(int argc, char const *argv[])
 	generator.Run(maze::Position::FromExternal(0, 0));
 	maze::ConsolePainter painter;
 	painter.Paint(generator.matrix());
-	(void)getch(stdin);
+	(void)getc(stdin);
 	return 0;
 }

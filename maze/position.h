@@ -19,11 +19,23 @@ namespace maze {
 
 		/**
 		 * Constructor.
+		 */
+		Position();
+
+		/**
+		 * Constructor.
 		 * 
 		 * @param[in] x 	The column index of the matrix.
 		 * @param[in] y 	The row index of the matrix.
 		 */
 		Position(int x, int y);
+
+		/**
+		 * Copy constructor.
+		 * 
+		 * @param[in] other 	The object to copy from.
+		 */
+		Position(const Position& other);
 
 		/**
 		 * Constructs position from external point.
@@ -34,13 +46,20 @@ namespace maze {
 		static Position FromExternal(int x, int y);
 
 		/**
+		 * Assignment operator overload.
+		 * 
+		 * @param[in] other 	The object to assign from.
+		 */
+		void operator =(const Position& other);
+
+		/**
 		 * Returns near position in chosen direction.
 		 * 
 		 * @param[in] direction 	The direction.
 		 * 
 		 * @return Near position.
 		 */
-		Position GetNearPosition(Direction direction);
+		Position GetNearPosition(Direction direction) const;
 
 		int x;
 		int y;

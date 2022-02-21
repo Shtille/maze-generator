@@ -7,16 +7,31 @@
 
 namespace maze {
 	
+	Position::Position()
+	: x(0)
+	, y(0)
+	{
+	}
 	Position::Position(int x, int y)
 	: x(x)
 	, y(y)
+	{
+	}
+	Position::Position(const Position& other)
+	: x(other.x)
+	, y(other.y)
 	{
 	}
 	Position Position::FromExternal(int x, int y)
 	{
 		return Position(2 * x + 1, 2 * y + 1);
 	}
-	Position Position::GetNearPosition(Direction direction)
+	void Position::operator =(const Position& other)
+	{
+		x = other.x;
+		y = other.y;
+	}
+	Position Position::GetNearPosition(Direction direction) const
 	{
 		switch (direction)
 		{

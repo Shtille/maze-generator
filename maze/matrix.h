@@ -95,7 +95,7 @@ namespace maze {
 		 * @param[in] pos 		The position of cell.
 		 * @param[in] flag 		The flag to add.
 		 */
-		void AddFlag(const Position& pos, Cell flag);
+		void AddFlag(const Position& pos, unsigned int flag);
 
 		/**
 		 * Remove flag at specified position.
@@ -103,7 +103,7 @@ namespace maze {
 		 * @param[in] pos 		The position of cell.
 		 * @param[in] flag 		The flag to remove.
 		 */
-		void RemoveFlag(const Position& pos, Cell flag);
+		void RemoveFlag(const Position& pos, unsigned int flag);
 
 		/**
 		 * Checks if matrix has flag set at position.
@@ -113,7 +113,7 @@ namespace maze {
 		 * 
 		 * @return True if success and false otherwise.
 		 */
-		bool HasFlag(const Position& pos, Cell flag);
+		bool HasFlag(const Position& pos, unsigned int flag);
 
 	private:
 

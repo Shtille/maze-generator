@@ -9,6 +9,12 @@
 
 namespace maze {
 	
+	ConsolePainter::ConsolePainter()
+	{
+	}
+	ConsolePainter::~ConsolePainter()
+	{
+	}
 	void ConsolePainter::Paint(const Matrix& matrix)
 	{
 		// Enumerate cells in row-first order
@@ -19,13 +25,13 @@ namespace maze {
 				Position position(i, j);
 				unsigned int value = matrix.Get(position);
 				if (value == Cell::kWall)
-					putc('#');
+					fputc('#', stdout);
 				else if (value == Cell::kRoom)
-					putc(' ');
+					fputc(' ', stdout);
 				else if (value == Cell::kPath)
-					putc('o');
+					fputc('o', stdout);
 			}
-			putc('\n');
+			fputc('\n', stdout);
 		}
 	}
 

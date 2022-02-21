@@ -47,10 +47,10 @@ namespace maze {
 			int random_index = GetRandom(static_cast<int>(wall_list_.size()));
 			WallInfo& wall = wall_list_[random_index];
 			WallInfo next_wall = wall.GetNext();
-			if (!matrix_.HasFlag(next_wall.position, Cell:kVisited))
+			if (!matrix_.HasFlag(next_wall.position, Cell::kVisited))
 			{
 				// Make the wall a passage and mark the unvisited cell as part of the maze.
-				matrix_.Set(wall.position, Cell:kRoom);
+				matrix_.Set(wall.position, Cell::kRoom);
 				matrix_.AddFlag(next_wall.position, Cell::kVisited);
 				// Add the neighboring walls of the cell to the wall list.
 				for (int i = 0; i < 4; ++i)
