@@ -124,7 +124,7 @@ namespace maze {
 
 		matrix_[pos.x][pos.y] &= ~flag;
 	}
-	bool Matrix::HasFlag(const Position& pos, unsigned int flag)
+	bool Matrix::HasFlag(const Position& pos, unsigned int flag) const
 	{
 		assert(0 <= pos.x && pos.x < width_);
 		assert(0 <= pos.y && pos.y < height_);

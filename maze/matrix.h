@@ -113,7 +113,7 @@ namespace maze {
 		 * 
 		 * @return True if success and false otherwise.
 		 */
-		bool HasFlag(const Position& pos, unsigned int flag);
+		bool HasFlag(const Position& pos, unsigned int flag) const;
 
 	private:
 

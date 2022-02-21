@@ -1,8 +1,6 @@
 #include "prim_generator.h"
 #include "console_painter.h"
 
-#include <cstdio>
-
 int main(int argc, char const *argv[])
 {
 	const int kWidth = 5;
@@ -13,6 +11,5 @@ int main(int argc, char const *argv[])
 	generator.Run(maze::Position::FromExternal(0, 0));
 	maze::ConsolePainter painter;
 	painter.Paint(generator.matrix());
-	(void)getc(stdin);
 	return 0;
 }

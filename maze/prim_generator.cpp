@@ -6,6 +6,7 @@
 #include "prim_generator.h"
 
 #include <cstdlib>
+#include <cstdio> // temp for log
 
 namespace maze {
 	
@@ -56,7 +57,7 @@ namespace maze {
 				for (int i = 0; i < 4; ++i)
 				{
 					Direction direction = static_cast<Direction>(i);
-					pos = start.GetNearPosition(direction);
+					pos = next_wall.position.GetNearPosition(direction);
 					if (matrix_.IsPosValid(pos) && matrix_.Get(pos) == Cell::kWall)
 						wall_list_.push_back(WallInfo(pos, direction));
 				}

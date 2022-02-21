@@ -26,9 +26,9 @@ namespace maze {
 				unsigned int value = matrix.Get(position);
 				if (value == Cell::kWall)
 					fputc('#', stdout);
-				else if (value == Cell::kRoom)
+				else if (matrix.HasFlag(position, Cell::kRoom))
 					fputc(' ', stdout);
-				else if (value == Cell::kPath)
+				else if (matrix.HasFlag(position, Cell::kPath))
 					fputc('o', stdout);
 			}
 			fputc('\n', stdout);
