@@ -14,6 +14,12 @@ static void print_help(const char* name)
 		<< "\t-s,--seed\t\tSpecify the seed for random\n"
 		<< std::endl;
 }
+static void wait_for_input_on_windows()
+{
+#if defined(_WIN64) || defined(_WIN32)
+	::system("pause");
+#endif
+}
 int main(int argc, char const *argv[])
 {
 	int width = 5, height = 5, seed = 1;
@@ -71,5 +77,6 @@ int main(int argc, char const *argv[])
 	generator.Run(maze::Position::FromExternal(0, 0));
 	maze::ConsolePainter painter;
 	painter.Paint(generator.matrix());
+	wait_for_input_on_windows();
 	return 0;
 }
