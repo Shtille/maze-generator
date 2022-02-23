@@ -24,7 +24,7 @@ namespace maze {
 		 * 
 		 * @param[in] seed 	The seed.
 		 */
-		void Randomize(int seed);
+		void SetSeed(int seed);
 
 		/**
 		 * Gets random value from range [0; maximum].

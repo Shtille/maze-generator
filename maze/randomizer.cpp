@@ -12,7 +12,7 @@ namespace maze {
 	Randomizer::Randomizer()
 	{
 	}
-	void Randomizer::Randomize(int seed)
+	void Randomizer::SetSeed(int seed)
 	{
 		std::srand(seed);
 	}

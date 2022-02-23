@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <cstring>
+#include <memory>
+
+static const char* kTypeRandomizedPrim = "prim";
 
 static void print_help(const char* name)
 {
@@ -22,15 +25,42 @@ static void wait_for_input_on_windows()
 }
 int main(int argc, char const *argv[])
 {
+	// List of available types:
+	char const * types[] = {
+		kTypeRandomizedPrim
+	};
+	std::unique_ptr<maze::Generator> generator;
 	int width = 5, height = 5, seed = 1;
+	char const * type = nullptr;
 
 	// Parse arguments
 	for (int i = 1; i < argc; ++i)
 	{
 		if (strcmp(argv[i], "--help") == 0)
 		{
-			print_help(argv[0]);
-			return 0;
+			if (i+1 < argc) // specialized help
+			{
+				++i;
+				if (strcmp(argv[i], "t") == 0 || strcmp(argv[i], "type") == 0) // help for type
+				{
+					std::cout << "List of available types:" << std::endl;
+					for (int j = 0; j < sizeof(types)/sizeof(types[0]); ++j)
+					{
+						std::cout << "- " << types[j] << std::endl;
+					}
+					return 0;
+				}
+				else
+				{
+					std::cout << "Argument '" << argv[i] << "' is unknown" << std::endl;
+					return 1;
+				}
+			}
+			else
+			{
+				print_help(argv[0]);
+				return 0;
+			}
 		}
 		else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--width") == 0)
 		{
@@ -64,19 +94,45 @@ int main(int argc, char const *argv[])
 		}
 		else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--type") == 0)
 		{
-			// TODO
-			std::cout << argv[i] << " option is no implemented yet" << std::endl;
-			return 1;
+			if (i+1 < argc)
+				type = argv[++i];
+			else
+			{
+				std::cout << argv[i] << " option requires an argument" << std::endl;
+				return 1;
+			}
 		}
 	}
 
-	maze::RandomizedPrimGenerator generator;
-	if (!generator.Initialize(width, height))
+	// Create generator depending on the chosen type
+	if (type == nullptr) // the type is not set
+	{
+		// Use default type
+		generator = std::make_unique<maze::RandomizedPrimGenerator>();
+	}
+	else if (strcmp(type, kTypeRandomizedPrim) == 0)
+	{
+		generator = std::make_unique<maze::RandomizedPrimGenerator>();
+	}
+	else // unknown type
+	{
+		std::cout << "Type '" << type << "' is unknown" << std::endl;
 		return 1;
-	generator.Randomize(seed);
-	generator.Run(maze::Position::FromExternal(0, 0));
+	}
+
+	// Initialize matrix
+	if (!generator->Initialize(width, height))
+		return 1;
+
+	// Run the generator
+	generator->Randomize(seed);
+	generator->Run(maze::Position::FromExternal(0, 0));
+
+	// Paint the maze
 	maze::ConsolePainter painter;
-	painter.Paint(generator.matrix());
+	painter.Paint(generator->matrix());
+
+	// Wait for user input (Windows only)
 	wait_for_input_on_windows();
 	return 0;
 }

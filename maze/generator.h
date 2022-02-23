@@ -7,6 +7,7 @@
 #define __MAZE_GENERATOR_H__
 
 #include "matrix.h"
+#include "randomizer.h"
 
 namespace maze {
 	
@@ -45,6 +46,13 @@ namespace maze {
 		bool Initialize(int width, int height);
 
 		/**
+		 * Picks another seed.
+		 * 
+		 * @param[in] seed 	The seed.
+		 */
+		void Randomize(int seed);
+
+		/**
 		 * Runs generator at start position.
 		 * 
 		 * @param[in] start 	The start position.
@@ -54,6 +62,7 @@ namespace maze {
 	protected:
 
 		Matrix matrix_;
+		Randomizer randomizer_;
 	};
 
 } // namespace maze

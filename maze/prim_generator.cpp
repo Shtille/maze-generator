@@ -7,14 +7,6 @@
 
 namespace maze {
 	
-	RandomizedPrimGenerator::RandomizedPrimGenerator()
-	{
-
-	}
-	void RandomizedPrimGenerator::Randomize(int seed)
-	{
-		randomizer_.Randomize(seed);
-	}
 	// Main algorithm:
 	//   1. Start with a grid full of walls.
 	//   2. Pick a cell, mark it as part of the maze. Add the walls of the cell to the wall list.

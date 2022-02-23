@@ -8,29 +8,17 @@
 
 #include "generator.h"
 #include "wall_info.h"
-#include "randomizer.h"
 
 #include <vector>
 
 namespace maze {
 	
 	/**
-	 * Defines randomized Prim's generator class.
+	 * Defines randomized Prim's generator.
+	 * Uses random, so use Randomize function to set seed.
 	 */
 	class RandomizedPrimGenerator : public Generator {
 	public:
-
-		/**
-		 * Constructor.
-		 */
-		RandomizedPrimGenerator();
-
-		/**
-		 * Picks another seed.
-		 * 
-		 * @param[in] seed 	The seed.
-		 */
-		void Randomize(int seed);
 
 		/**
 		 * Runs generator at start position.
@@ -42,7 +30,6 @@ namespace maze {
 	private:
 
 		std::vector<WallInfo> wall_list_;
-		Randomizer randomizer_;
 	};
 
 } // namespace maze

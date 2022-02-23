@@ -27,5 +27,9 @@ namespace maze {
 	{
 		return matrix_.Initialize(width, height);
 	}
+	void Generator::Randomize(int seed)
+	{
+		randomizer_.SetSeed(seed);
+	}
 
 } // namespace maze
