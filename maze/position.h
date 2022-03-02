@@ -61,6 +61,27 @@ namespace maze {
 		 */
 		Position GetNearPosition(Direction direction) const;
 
+		/**
+		 * Returns near room in chosen direction.
+		 * The same as GetNearPosition, but distance is doubled.
+		 * 
+		 * @param[in] direction 	The direction.
+		 * 
+		 * @return Near room.
+		 * @see GetNearPosition
+		 */
+		Position GetNearRoom(Direction direction) const;
+
+		/**
+		 * Returns a position between two.
+		 * 
+		 * @param[in] first 	The first position.
+		 * @param[in] second 	The second position.
+		 * 
+		 * @return Between position.
+		 */
+		static Position GetBetween(const Position& first, const Position& second);
+
 		int x;
 		int y;
 	};

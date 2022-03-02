@@ -1,4 +1,6 @@
 #include "prim_generator.h"
+#include "backtracking_generator.h"
+
 #include "console_painter.h"
 
 #include <iostream>
@@ -6,6 +8,7 @@
 #include <memory>
 
 static const char* kTypeRandomizedPrim = "prim";
+static const char* kTypeBacktracking = "backtrack";
 
 static void print_help(const char* name)
 {
@@ -27,7 +30,8 @@ int main(int argc, char const *argv[])
 {
 	// List of available types:
 	char const * types[] = {
-		kTypeRandomizedPrim
+		kTypeRandomizedPrim,
+		kTypeBacktracking
 	};
 	std::unique_ptr<maze::Generator> generator;
 	int width = 5, height = 5, seed = 1;
@@ -113,6 +117,10 @@ int main(int argc, char const *argv[])
 	else if (strcmp(type, kTypeRandomizedPrim) == 0)
 	{
 		generator = std::make_unique<maze::RandomizedPrimGenerator>();
+	}
+	else if (strcmp(type, kTypeBacktracking) == 0)
+	{
+		generator = std::make_unique<maze::BacktrackingGenerator>();
 	}
 	else // unknown type
 	{

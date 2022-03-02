@@ -45,5 +45,13 @@ namespace maze {
 			return Position(x, y + 1);
 		}
 	}
+	Position Position::GetNearRoom(Direction direction) const
+	{
+		return GetNearPosition(direction).GetNearPosition(direction);
+	}
+	Position Position::GetBetween(const Position& first, const Position& second)
+	{
+		return Position((first.x + second.x)/2, (first.y + second.y)/2);
+	}
 
 } // namespace maze

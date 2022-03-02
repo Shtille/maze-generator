@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\maze\backtracking_generator.h" />
     <ClInclude Include="..\..\..\maze\cell.h" />
     <ClInclude Include="..\..\..\maze\console_painter.h" />
     <ClInclude Include="..\..\..\maze\direction.h" />
@@ -139,6 +140,7 @@
     <ClInclude Include="..\..\..\maze\wall_info.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\maze\backtracking_generator.cpp" />
     <ClCompile Include="..\..\..\maze\console_painter.cpp" />
     <ClCompile Include="..\..\..\maze\generator.cpp" />
     <ClCompile Include="..\..\..\maze\matrix.cpp" />

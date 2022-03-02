@@ -6,6 +6,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\maze\backtracking_generator.h">
+      <Filter>maze</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\maze\cell.h">
       <Filter>maze</Filter>
     </ClInclude>
@@ -38,6 +41,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\maze\backtracking_generator.cpp">
+      <Filter>maze</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\maze\console_painter.cpp">
       <Filter>maze</Filter>
     </ClCompile>
