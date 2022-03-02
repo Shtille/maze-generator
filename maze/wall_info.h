@@ -30,6 +30,11 @@ namespace maze {
 		 */
 		WallInfo GetNext();
 
+		/**
+		 * Returns previous position in the picked direction.
+		 */
+		WallInfo GetPrev();
+
 		Position position;
 		Direction direction;
 	};

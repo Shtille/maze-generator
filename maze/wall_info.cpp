@@ -17,5 +17,10 @@ namespace maze {
 		Position next_position = position.GetNearPosition(direction);
 		return WallInfo(next_position, direction);
 	}
+	WallInfo WallInfo::GetPrev()
+	{
+		Position prev_position = position.GetNearPosition(GetOppositeDirection(direction));
+		return WallInfo(prev_position, direction);
+	}
 
 } // namespace maze

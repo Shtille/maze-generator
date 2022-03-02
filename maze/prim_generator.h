@@ -32,6 +32,26 @@ namespace maze {
 		std::vector<WallInfo> wall_list_;
 	};
 
+	/**
+	 * Defines modified Prim's generator.
+	 * Uses list of adjacent cells instead of list of edges.
+	 * Uses random, so use Randomize function to set seed.
+	 */
+	class ModifiedPrimGenerator : public Generator {
+	public:
+
+		/**
+		 * Runs generator at start position.
+		 * 
+		 * @param[in] start 	The start position.
+		 */
+		void Run(const Position& start) override;
+
+	private:
+
+		std::vector<Position> cells_;
+	};
+
 } // namespace maze
 
 #endif

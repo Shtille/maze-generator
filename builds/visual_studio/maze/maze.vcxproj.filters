@@ -47,6 +47,9 @@
     <ClCompile Include="..\..\..\maze\console_painter.cpp">
       <Filter>maze</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\maze\direction.cpp">
+      <Filter>maze</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\maze\generator.cpp">
       <Filter>maze</Filter>
     </ClCompile>

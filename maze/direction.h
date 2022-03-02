@@ -19,6 +19,15 @@ namespace maze {
 		kLeft
 	};
 
+	/**
+	 * Returns opposite direction.
+	 * 
+	 * @param[in] direction 	The direction.
+	 * 
+	 * @return The opposite direction.
+	 */
+	Direction GetOppositeDirection(Direction direction);
+
 } // namespace maze
 
 #endif

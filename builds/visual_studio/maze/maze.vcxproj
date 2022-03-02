@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\maze\backtracking_generator.cpp" />
     <ClCompile Include="..\..\..\maze\console_painter.cpp" />
+    <ClCompile Include="..\..\..\maze\direction.cpp" />
     <ClCompile Include="..\..\..\maze\generator.cpp" />
     <ClCompile Include="..\..\..\maze\matrix.cpp" />
     <ClCompile Include="..\..\..\maze\position.cpp" />

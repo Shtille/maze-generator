@@ -8,6 +8,7 @@
 #include <memory>
 
 static const char* kTypeRandomizedPrim = "prim";
+static const char* kTypeModifiedPrim = "modprim";
 static const char* kTypeBacktracking = "backtrack";
 
 static void print_help(const char* name)
@@ -117,6 +118,10 @@ int main(int argc, char const *argv[])
 	else if (strcmp(type, kTypeRandomizedPrim) == 0)
 	{
 		generator = std::make_unique<maze::RandomizedPrimGenerator>();
+	}
+	else if (strcmp(type, kTypeModifiedPrim) == 0)
+	{
+		generator = std::make_unique<maze::ModifiedPrimGenerator>();
 	}
 	else if (strcmp(type, kTypeBacktracking) == 0)
 	{
