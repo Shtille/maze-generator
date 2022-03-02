@@ -32,6 +32,7 @@ int main(int argc, char const *argv[])
 	// List of available types:
 	char const * types[] = {
 		kTypeRandomizedPrim,
+		kTypeModifiedPrim,
 		kTypeBacktracking
 	};
 	std::unique_ptr<maze::Generator> generator;
