@@ -5,9 +5,13 @@ A C++ library for maze generation.
 * Make
 
 ## Supported generation algorithms
-* (Randomized depth-first search (backtracking))[https://en.wikipedia.org/wiki/Maze_generation_algorithm#Iterative_implementation]
-* (Randomized Prim's algorithm)[https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm]
-* (Modified Prim's algorithm)[https://en.wikipedia.org/wiki/Maze_generation_algorithm#Modified_version]
+- [Randomized depth-first search (backtracking)][1]
+- [Randomized Prim's algorithm][2]
+- [Modified Prim's algorithm][3]
+
+[1]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Iterative_implementation
+[2]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm
+[3]: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Modified_version
 
 ## Usage
 You can find the example in the _demos_ directory.
