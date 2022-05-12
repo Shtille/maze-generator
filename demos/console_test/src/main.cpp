@@ -19,6 +19,7 @@ static void print_help(const char* name)
 		<< "\t-w,--width\t\tSpecify the width of the maze\n"
 		<< "\t-h,--height\t\tSpecify the height of the maze\n"
 		<< "\t-s,--seed\t\tSpecify the seed for random\n"
+		<< "\t-t,--type\t\tSpecify the type of generator\n"
 		<< std::endl;
 }
 static void wait_for_input_on_windows()
